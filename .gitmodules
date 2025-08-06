@@ -2,3 +2,7 @@
 	path = minilibx-linux
 	url = https://github.com/lornzoe/42-minilibx-linux.git
 	branch = master
+[submodule "42-libft"]
+	path = 42-libft
+	url = https://github.com/lornzoe/42-libft.git
+	branch = master
