@@ -1,0 +1,4 @@
+-I
+minilibx-linux/
+-I
+libft/headers/

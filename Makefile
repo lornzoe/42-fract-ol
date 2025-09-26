@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 01:06:07 by lyanga            #+#    #+#              #
-#    Updated: 2025/08/07 01:20:35 by lyanga           ###   ########.fr        #
+#    Updated: 2025/09/26 23:19:23 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,13 @@ OUTDIR      =   .
 
 # Compiler and flags
 CC          =   cc
-CFLAGS      =   -Wall -Werror -Wextra
+CFLAGS      =   -Wall -Werror -Wextra -std=gnu89
 DEBUG_FLAGS =   -g -O0
 RM          =   rm -f
 
 # Source files and objects
 SRCS        =   main.c \
-                # Add more source files here, e.g., \
-                # fractal.c \
-                # hooks.c
+				init.c mandelbrot.c julia.c mouse_and_keys.c utils.c draw.c
 OBJS        =   $(SRCS:.c=.o)
 
 # Directories for external libraries
@@ -46,7 +44,7 @@ $(NAME): $(LIBFT) $(MINILIBX) $(OBJS)
 
 # Compile C files to object files
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -I$(LIBFT_DIR)/headers -I$(MINILIBX_DIR)
 
 # Build libft
 $(LIBFT):
