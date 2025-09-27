@@ -12,12 +12,11 @@
 
 #include "fractol.h"
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
-
 int	draw_fractal(t_fractal *fractal, char *query)
 {
-	if (ft_strncmp(query, "mandelbrot", 10) == 0)
+	size_t test = ft_strncmp(query, "mandelbrot", 11);
+	ft_printf("l %s: %d\n",query, test);
+	if (ft_strncmp(query, "mandelbrot", 11) == 0)
 		draw_mandelbrot(fractal);
 	else
 	{

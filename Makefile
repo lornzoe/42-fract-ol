@@ -64,7 +64,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	make fclean -C $(LIBFT_DIR)
-	make fclean -C $(MINILIBX_DIR)
 
 # Rebuild the project
 re: fclean all

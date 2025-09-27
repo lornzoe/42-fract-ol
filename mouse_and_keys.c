@@ -75,6 +75,8 @@ void	set_random_julia(double *cx, double *cy)
  */
 int	key_hook(int key_code, t_fractal *fractal)
 {
+	ft_printf("Key pressed: %d\n", key_code);
+
 	if (key_code == ESC)
 		exit(1);
 	else if (key_code == LEFT)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 23:04:32 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/26 23:15:42 by lyanga           ###   ########.fr       */
+/*   Created: 2025/09/01 23:04:32 by lyanga            #+#    #+#             */
+/*   Updated: 2025/09/27 08:49:15 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 # define FRACTOL_H
 
 # include "libft.h"
+# include "ft_printf.h"
 # include "mlx.h"
 # include <math.h>
 # include <pthread.h>
 
-# define SIZE 700
-# define THREAD_WIDTH 7
-# define THREAD_NUMBER 100
+# define SIZE 420
 
 // key codes
-# define ESC 53
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
-# define R 15
-# define C 8
-# define H 4
-# define J 38
-# define P 35
-# define M 46
+# define ESC 65307 //53
+# define UP 65362 //126
+# define DOWN 65364 //125
+# define LEFT 65361 //123
+# define RIGHT 65363 //124
+# define R 114 //15
+# define C 99 //8
+# define H 104 //52 
+# define J 106 //38
+# define P 112 //35
+# define M 109 //46
 
 // mouse codes
 # define SCROLL_UP 4

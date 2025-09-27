@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 23:16:19 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/26 23:16:29 by lyanga           ###   ########.fr       */
+/*   Created: 2025/09/20 23:16:19 by lyanga            #+#    #+#             */
+/*   Updated: 2025/09/27 07:28:56 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,17 @@ void	init_fractal(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	fractal->color = 0xFCBE11;
+	fractal->color = 0x4488CC;
 	fractal->zoom = 300;
 	fractal->offset_x = -1.21;
 	fractal->offset_y = -1.21;
 	fractal->max_iterations = 42;
 }
 
-/**
- * @brief    Initializes the MiniLibX variables.
- *
- * @param    fractal
- */
 void	init_mlx(t_fractal *fractal)
 {
 	fractal->mlx = mlx_init();
-	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "Fract-ol");
+	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "fract-ol");
 	fractal->image = mlx_new_image(fractal->mlx, SIZE, SIZE);
 	fractal->pointer_to_image = mlx_get_data_addr(fractal->image,
 			&fractal->bits_per_pixel,
