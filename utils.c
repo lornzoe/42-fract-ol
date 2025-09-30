@@ -6,20 +6,12 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:12:10 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/26 23:12:10 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/09/30 13:52:22 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/**
- * @brief    Puts the provided color to the pixel at the provided coordinates.
- *
- * @param    fractal
- * @param    x         The graphic x coordinate
- * @param    y         The graphic y coordinate
- * @param    color     The color to put to the pixel.
- */
 void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
 {
 	int	*buffer;
@@ -28,11 +20,6 @@ void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
 	buffer[(y * fractal->size_line / 4) + x] = color;
 }
 
-/**
- * @brief    Exits the program.
- *
- * @param    fractal
- */
 int	exit_fractal(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->image);
@@ -43,23 +30,11 @@ int	exit_fractal(t_fractal *fractal)
 	return (0);
 }
 
-/**
- * @brief    Generates a random double between -1.5 and 1.5.
- *
- * @return   double    The random double.
- */
 double	generate_random_c(void)
 {
 	return (((double)rand() / RAND_MAX) * 3.0 - 1.5);
 }
 
-/**
- * @brief    Increases or decreases the number of iterations.
- * The lower the number of iterations is, the faster the fractal is generated.
- *
- * @param    fractal
- * @param    key_code
- */
 void	change_iterations(t_fractal *fractal, int key_code)
 {
 	if (key_code == M)

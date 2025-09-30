@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 23:04:32 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/27 08:49:15 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/09/30 15:09:35 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,21 @@
 # include "ft_printf.h"
 # include "mlx.h"
 # include <math.h>
-# include <pthread.h>
 
-# define SIZE 420
+# define SIZE 900
 
 // key codes
-# define ESC 65307 //53
-# define UP 65362 //126
-# define DOWN 65364 //125
-# define LEFT 65361 //123
-# define RIGHT 65363 //124
-# define R 114 //15
-# define C 99 //8
-# define H 104 //52 
-# define J 106 //38
-# define P 112 //35
-# define M 109 //46
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
+# define R 114
+# define C 99
+# define H 104
+# define J 106
+# define P 112
+# define M 109
 
 // mouse codes
 # define SCROLL_UP 4
@@ -76,6 +75,9 @@ void		calculate_mandelbrot(t_fractal *fractal);
 // julia.c
 void		calculate_julia(t_fractal *fractal);
 
+// burning_ship.c
+void		calculate_burning_ship(t_fractal *fractal);
+
 // main.c
 int			draw_fractal(t_fractal *fractal, char *query);
 
@@ -84,7 +86,7 @@ int			key_hook(int key_code, t_fractal *fractal);
 int			mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
 
 // draw.c
-void		*draw_mandelbrot(void *fractal_void);
+void		draw_mandelbrot(t_fractal *fractal);
 void		draw_julia(t_fractal *fractal);
 void		draw_burning_ship(t_fractal *fractal);
 

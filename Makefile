@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 01:06:07 by lyanga            #+#    #+#              #
-#    Updated: 2025/09/26 23:19:23 by lyanga           ###   ########.fr        #
+#    Updated: 2025/09/30 14:07:17 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ RM          =   rm -f
 
 # Source files and objects
 SRCS        =   main.c \
-				init.c mandelbrot.c julia.c mouse_and_keys.c utils.c draw.c
+				init.c mandelbrot.c julia.c mouse_and_keys.c utils.c draw.c burning_ship.c
 OBJS        =   $(SRCS:.c=.o)
 
 # Directories for external libraries

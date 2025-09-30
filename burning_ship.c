@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   burning_ship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 23:12:19 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/30 13:51:08 by lyanga           ###   ########.fr       */
+/*   Created: 2025/09/30 13:54:03 by lyanga            #+#    #+#             */
+/*   Updated: 2025/09/30 14:01:11 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	calculate_mandelbrot(t_fractal *fractal)
+void	calculate_burning_ship(t_fractal *fractal)
 {
 	int		i;
 	double	x_temp;
 
-	fractal->name = "mandelbrot";
+	fractal->name = "burning_ship";
 	i = 0;
 	fractal->zx = 0.0;
 	fractal->zy = 0.0;
@@ -27,8 +27,8 @@ void	calculate_mandelbrot(t_fractal *fractal)
 	{
 		x_temp = fractal->zx * fractal->zx - fractal->zy * fractal->zy
 			+ fractal->cx;
-		fractal->zy = 2. * fractal->zx * fractal->zy + fractal->cy;
-		fractal->zx = x_temp;
+		fractal->zy = fabs(2. * fractal->zx * fractal->zy) + fractal->cy;
+		fractal->zx = fabs(x_temp);
 		if (fractal->zx * fractal->zx + fractal->zy
 			* fractal->zy >= __DBL_MAX__)
 			break ;

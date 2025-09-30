@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 00:06:26 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/26 23:16:15 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/09/30 14:04:23 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	draw_fractal(t_fractal *fractal, char *query)
 {
-	size_t test = ft_strncmp(query, "mandelbrot", 11);
-	ft_printf("l %s: %d\n",query, test);
 	if (ft_strncmp(query, "mandelbrot", 11) == 0)
 		draw_mandelbrot(fractal);
+	else if (ft_strncmp(query, "julia", 6) == 0)
+		draw_julia(fractal);
+	else if (ft_strncmp(query, "burning_ship", 13) == 0)
+		draw_burning_ship(fractal);
 	else
 	{
-		ft_putendl_fd("Available fractals: mandelbrot, julia", 1);
+		ft_putendl_fd("Available fractals: mandelbrot, julia, burning_ship", 1);
 		exit_fractal(fractal);
 	}
 	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->image, 0,
@@ -28,8 +30,8 @@ int	draw_fractal(t_fractal *fractal, char *query)
 	return (0);
 }
 
-
-int main(int argc, char **argv) {
+int	main(int argc, char **argv)
+{
 	t_fractal	*fractal;
 
 	if (argc != 2)
@@ -39,15 +41,12 @@ int main(int argc, char **argv) {
 		return (0);
 	}
 	fractal = malloc(sizeof(t_fractal));
-
 	init_fractal(fractal);
 	init_mlx(fractal);
-
 	mlx_key_hook(fractal->window, key_hook, fractal);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
 	mlx_hook(fractal->window, 17, 0L, exit_fractal, fractal);
 	draw_fractal(fractal, argv[1]);
 	mlx_loop(fractal->mlx);
-	
-	return 0;
+	return (0);
 }

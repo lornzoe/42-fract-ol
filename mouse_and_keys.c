@@ -6,21 +6,13 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:14:58 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/26 23:15:04 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/09/30 15:05:35 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/**
- * @brief    Zooms or dezooms the fractal.
- *
- * @param    fractal
- * @param    x         The x coordinate of the mouse.
- * @param    y         The y coordinate of the mouse.
- * @param    zoom      1 for zoom, -1 for dezoom.
- */
-void	zoom(t_fractal *fractal, int x, int y, int zoom)
+static void	zoom(t_fractal *fractal, int x, int y, int zoom)
 {
 	double	zoom_level;
 
@@ -45,38 +37,14 @@ void	zoom(t_fractal *fractal, int x, int y, int zoom)
 		return ;
 }
 
-/**
- * @brief    Sets the constants of Julia to random values.
- *
- * @param    cx        A pointer to the cx constant.
- * @param    cy        A pointer to the cy constant.
- */
-void	set_random_julia(double *cx, double *cy)
+static void	set_random_julia(double *cx, double *cy)
 {
 	*cx = generate_random_c();
 	*cy = generate_random_c();
 }
 
-/**
- * @brief    The handler for keyboard events.
- * 				ESC: exit the program.
- * 				LEFT: move the fractal to the left.
- * 				RIGHT: move the fractal to the right.
- * 				UP: move the fractal up.
- * 				DOWN: move the fractal down.
- * 				R: reset the fractal.
- * 				C: change the color scheme.
- * 				J: set the constants of Julia to random values.
- * 				P: increase the max iterations.
- * 				M: reduce the max iterations.
- *
- * @param    key_code
- * @param    fractal
- */
 int	key_hook(int key_code, t_fractal *fractal)
 {
-	ft_printf("Key pressed: %d\n", key_code);
-
 	if (key_code == ESC)
 		exit(1);
 	else if (key_code == LEFT)
@@ -99,16 +67,6 @@ int	key_hook(int key_code, t_fractal *fractal)
 	return (0);
 }
 
-/**
- * @brief    The handler for mouse events.
- * 				SCROLL_UP: zoom in.
- * 				SCROLL_DOWN: zoom out.
- *
- * @param    mouse_code The code of the mouse event.
- * @param    x          The x coordinate of the mouse.
- * @param    y          The y coordinate of the mouse.
- * @param    fractal
- */
 int	mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 {
 	if (mouse_code == SCROLL_UP)
