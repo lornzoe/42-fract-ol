@@ -6,12 +6,11 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:14:58 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/01 17:58:43 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/01 18:22:33 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <X11/X.h>
 
 static void	zoom(t_fractal *fractal, int x, int y, int zoom)
 {
