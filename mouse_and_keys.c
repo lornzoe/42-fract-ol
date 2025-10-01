@@ -6,11 +6,12 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:14:58 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/30 15:05:35 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/01 17:58:43 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <X11/X.h>
 
 static void	zoom(t_fractal *fractal, int x, int y, int zoom)
 {
@@ -43,10 +44,22 @@ static void	set_random_julia(double *cx, double *cy)
 	*cy = generate_random_c();
 }
 
+int close_fractol(t_fractal *fractal)
+{
+	mlx_destroy_image(fractal->mlx, fractal->image);
+	mlx_destroy_window(fractal->mlx, fractal->window);
+	mlx_destroy_display(fractal->mlx);
+	free(fractal->mlx);
+	free(fractal);
+	exit(0);
+	return (0);
+}
 int	key_hook(int key_code, t_fractal *fractal)
 {
 	if (key_code == ESC)
-		exit(1);
+	{
+		close_fractol(fractal);
+	}
 	else if (key_code == LEFT)
 		fractal->offset_x -= 42 / fractal->zoom;
 	else if (key_code == RIGHT)
@@ -58,10 +71,10 @@ int	key_hook(int key_code, t_fractal *fractal)
 	else if (key_code == R)
 		init_fractal(fractal);
 	else if (key_code == C)
-		fractal->color += (255 * 255 * 255) / 100;
+		fractal->color += (255 * 255 * 255) / 420;
 	else if (key_code == J)
-		set_random_julia(&fractal->cx, &fractal->cx);
-	else if (key_code == M || key_code == P)
+		set_random_julia(&fractal->cx, &fractal->cy);
+	else if (key_code == MINUS || key_code == PLUS)
 		change_iterations(fractal, key_code);
 	draw_fractal(fractal, fractal->name);
 	return (0);

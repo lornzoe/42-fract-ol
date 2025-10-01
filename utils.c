@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:12:10 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/30 13:52:22 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/01 17:58:22 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color)
 	buffer[(y * fractal->size_line / 4) + x] = color;
 }
 
-int	exit_fractal(t_fractal *fractal)
-{
-	mlx_destroy_image(fractal->mlx, fractal->image);
-	mlx_destroy_window(fractal->mlx, fractal->window);
-	free(fractal->mlx);
-	free(fractal);
-	exit(1);
-	return (0);
-}
-
 double	generate_random_c(void)
 {
 	return (((double)rand() / RAND_MAX) * 3.0 - 1.5);
@@ -37,12 +27,12 @@ double	generate_random_c(void)
 
 void	change_iterations(t_fractal *fractal, int key_code)
 {
-	if (key_code == M)
+	if (key_code == MINUS)
 	{
 		if (fractal->max_iterations > 42)
 			fractal->max_iterations -= 42;
 	}
-	else if (key_code == P)
+	else if (key_code == PLUS)
 	{
 		if (fractal->max_iterations < 4200)
 			fractal->max_iterations += 42;

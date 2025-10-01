@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 23:04:32 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/30 15:09:35 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/01 17:54:08 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 
 # define SIZE 900
 
+# ifdef __APPLE__
+#  define CLOSE_WINDOW 17
+# else
+#  define CLOSE_WINDOW 33
+# endif
+
 // key codes
 # define ESC 65307
 # define UP 65362
@@ -30,8 +36,8 @@
 # define C 99
 # define H 104
 # define J 106
-# define P 112
-# define M 109
+# define PLUS 61
+# define MINUS 45
 
 // mouse codes
 # define SCROLL_UP 4
@@ -62,7 +68,6 @@ typedef struct s_fractal
 
 // utils.c
 void		put_color_to_pixel(t_fractal *fractal, int x, int y, int colour);
-int			exit_fractal(t_fractal *fractal);
 double		generate_random_c(void);
 void		change_iterations(t_fractal *fractal, int key_code);
 
@@ -82,6 +87,7 @@ void		calculate_burning_ship(t_fractal *fractal);
 int			draw_fractal(t_fractal *fractal, char *query);
 
 // mouse_and_keys.c
+int			close_fractol(t_fractal *fractal);
 int			key_hook(int key_code, t_fractal *fractal);
 int			mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
 

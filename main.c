@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 00:06:26 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/30 14:04:23 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/01 14:44:43 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	draw_fractal(t_fractal *fractal, char *query)
 	else
 	{
 		ft_putendl_fd("Available fractals: mandelbrot, julia, burning_ship", 1);
-		exit_fractal(fractal);
+		close_fractol(fractal);
 	}
 	mlx_put_image_to_window(fractal->mlx, fractal->window, fractal->image, 0,
 		0);
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 	init_mlx(fractal);
 	mlx_key_hook(fractal->window, key_hook, fractal);
 	mlx_mouse_hook(fractal->window, mouse_hook, fractal);
-	mlx_hook(fractal->window, 17, 0L, exit_fractal, fractal);
+	mlx_hook(fractal->window, CLOSE_WINDOW, 0, close_fractol, fractal);
 	draw_fractal(fractal, argv[1]);
 	mlx_loop(fractal->mlx);
 	return (0);
