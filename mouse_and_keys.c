@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:14:58 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/03 16:17:30 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 16:46:24 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	zoom(t_fractal *fractal, int x, int y, int zoom)
 {
 	double	zoom_level;
 
-	zoom_level = 1.42;
+	zoom_level = 1.5;
 	if (zoom == 1)
 	{
 		fractal->offset_x = (x / fractal->zoom + fractal->offset_x) - (x
@@ -60,18 +60,18 @@ int	key_hook(int key_code, t_fractal *fractal)
 		close_fractol(fractal);
 	}
 	else if (key_code == LEFT)
-		fractal->offset_x -= 42 / fractal->zoom;
+		fractal->offset_x -= 50 / fractal->zoom;
 	else if (key_code == RIGHT)
-		fractal->offset_x += 42 / fractal->zoom;
+		fractal->offset_x += 50 / fractal->zoom;
 	else if (key_code == UP)
-		fractal->offset_y -= 42 / fractal->zoom;
+		fractal->offset_y -= 50 / fractal->zoom;
 	else if (key_code == DOWN)
-		fractal->offset_y += 42 / fractal->zoom;
-	else if (key_code == R)
+		fractal->offset_y += 50 / fractal->zoom;
+	else if (key_code == RESET)
 		init_fractal(fractal);
-	else if (key_code == C)
-		fractal->color += (255 * 255 * 255) / 42;
-	else if (key_code == J)
+	else if (key_code == COLOR)
+		fractal->color += ((255 * 255 * 255) >> 1);
+	else if (key_code == JULIA)
 		set_random_julia(&fractal->cx, &fractal->cy);
 	else if (key_code == MINUS || key_code == PLUS)
 		change_iterations(fractal, key_code);

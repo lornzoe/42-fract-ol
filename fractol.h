@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 23:04:32 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/03 14:28:27 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 16:38:38 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 
 # define SIZE 900
 
-# ifdef __APPLE__
-#  define CLOSE_WINDOW 17
-# else
+# ifdef linux
 #  define CLOSE_WINDOW 33
+# else
+#  define CLOSE_WINDOW 17
 # endif
 
 // key codes
@@ -34,10 +34,9 @@
 # define DOWN 65364
 # define LEFT 65361
 # define RIGHT 65363
-# define R 114
-# define C 99
-# define H 104
-# define J 106
+# define RESET 114
+# define COLOR 99
+# define JULIA 106
 # define PLUS 61
 # define MINUS 45
 
@@ -73,6 +72,7 @@ void		put_color_to_pixel(t_fractal *fractal, int x, int y, int colour);
 double		generate_random_c(void);
 void		change_iterations(t_fractal *fractal, int key_code);
 
+// init.c
 void		init_fractal(t_fractal *fractal);
 void		init_mlx(t_fractal *fractal);
 

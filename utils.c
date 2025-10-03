@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:12:10 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/01 17:58:22 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 16:49:38 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ void	change_iterations(t_fractal *fractal, int key_code)
 {
 	if (key_code == MINUS)
 	{
-		if (fractal->max_iterations > 42)
-			fractal->max_iterations -= 42;
+		if (fractal->max_iterations > 50)
+			fractal->max_iterations -= 50;
 	}
 	else if (key_code == PLUS)
 	{
-		if (fractal->max_iterations < 4200)
-			fractal->max_iterations += 42;
+		if (fractal->max_iterations < 5000)
+			fractal->max_iterations += 50;
 	}
 }
