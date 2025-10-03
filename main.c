@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 00:06:26 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/03 16:10:55 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 16:59:26 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,16 @@ int	draw_fractal(t_fractal *fractal, char *query)
 	return (0);
 }
 
+static int validate_julia(char *val1, char *val2)
+{
+	if (!(check_float(val1) && check_float(val2)))
+	{
+		ft_putendl_fd("Error: Invalid parameter value(s) provided.", 2);
+		return (0);
+	}
+	return (1);
+}
+
 static int validate_argv(int argc, char **argv)
 {
 	if (ft_strncmp(argv[1], "mandelbrot", 11) == 0
@@ -65,7 +75,7 @@ static int validate_argv(int argc, char **argv)
             ft_putendl_fd("Error: 'julia' requires two parameters: <real c> <imag. c>.", 2);
 			return (0);
         }
-        return (check_float(argv[2]) && check_float(argv[3]));
+        return (validate_julia(argv[2], argv[3]));
     }
 	return (print_usage(0));
 }
