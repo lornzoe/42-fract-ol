@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 23:16:19 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/01 14:33:31 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 16:21:47 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	init_fractal(t_fractal *fractal)
 {
 	fractal->x = 0;
 	fractal->y = 0;
-	fractal->color = 0xAAFF33;
+	fractal->color = 0xFCBA03;
 	fractal->zoom = 300;
-	fractal->offset_x = -1.21;
-	fractal->offset_y = -1.21;
+	fractal->offset_x = -1.5;
+	fractal->offset_y = -1.5;
 	fractal->max_iterations = 42;
 }
 

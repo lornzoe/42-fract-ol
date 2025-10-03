@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 23:04:32 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/01 18:21:42 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 14:28:27 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,11 @@ int			mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
 void		draw_mandelbrot(t_fractal *fractal);
 void		draw_julia(t_fractal *fractal);
 void		draw_burning_ship(t_fractal *fractal);
+
+// validate.c
+int			check_float(char *str);
+
+// ft_atod.c
+double		ft_atod(const char *str);
 
 #endif

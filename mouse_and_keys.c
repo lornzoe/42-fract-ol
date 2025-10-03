@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:14:58 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/01 18:22:33 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 16:17:30 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	key_hook(int key_code, t_fractal *fractal)
 	else if (key_code == R)
 		init_fractal(fractal);
 	else if (key_code == C)
-		fractal->color += (255 * 255 * 255) / 420;
+		fractal->color += (255 * 255 * 255) / 42;
 	else if (key_code == J)
 		set_random_julia(&fractal->cx, &fractal->cy);
 	else if (key_code == MINUS || key_code == PLUS)
