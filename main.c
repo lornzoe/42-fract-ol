@@ -6,22 +6,22 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 00:06:26 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/03 16:59:26 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 17:18:45 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "libft.h"
 
-static int print_usage(int usage)
+static int	print_usage(int usage)
 {
 	if (usage)
 		ft_putendl_fd("Usage: ./fractol <fractal> [parameters]", 2);
 	ft_putendl_fd("Available fractals:", 2);
-	ft_putendl_fd("	- mandelbrot (./fractol mandelbrot) (No parameters needed)", 2);
+	ft_putendl_fd("	- mandelbrot (./fractol mandelbrot)", 2);
 	ft_putendl_fd("	- julia (./fractol julia <real c> <imag. c>)", 2);
 	ft_putendl_fd("		- e.g. ./fractol julia 0.25 0.75", 2);
-	ft_putendl_fd("	- burning_ship (./fractol burning_ship) (No parameters needed)", 2);
+	ft_putendl_fd("	- burning_ship (./fractol burning_ship)", 2);
 	return (0);
 }
 
@@ -43,7 +43,7 @@ int	draw_fractal(t_fractal *fractal, char *query)
 	return (0);
 }
 
-static int validate_julia(char *val1, char *val2)
+static int	validate_julia(char *val1, char *val2)
 {
 	if (!(check_float(val1) && check_float(val2)))
 	{
@@ -53,30 +53,31 @@ static int validate_julia(char *val1, char *val2)
 	return (1);
 }
 
-static int validate_argv(int argc, char **argv)
+static int	validate_argv(int argc, char **argv)
 {
 	if (ft_strncmp(argv[1], "mandelbrot", 11) == 0
 		|| ft_strncmp(argv[1], "burning_ship", 13) == 0)
-    {
-        if (argc != 2)
-        {
+	{
+		if (argc != 2)
+		{
 			if (ft_strncmp(argv[1], "mandelbrot", 11) == 0)
-           		ft_putendl_fd("Error: 'mandelbrot' takes no parameters.", 2);
+				ft_putendl_fd("Error: 'mandelbrot' takes no parameters.", 2);
 			else
 				ft_putendl_fd("Error: 'burning_ship' takes no parameters.", 2);
 			return (0);
-        }
-        return (1);
-    }
+		}
+		return (1);
+	}
 	else if (ft_strncmp(argv[1], "julia", 6) == 0)
-    {
-        if (argc != 4)
-        {
-            ft_putendl_fd("Error: 'julia' requires two parameters: <real c> <imag. c>.", 2);
+	{
+		if (argc != 4)
+		{
+			ft_putendl_fd("Error: 'julia' takes 2 params: <real c> <imag. c>.",
+				2);
 			return (0);
-        }
-        return (validate_julia(argv[2], argv[3]));
-    }
+		}
+		return (validate_julia(argv[2], argv[3]));
+	}
 	return (print_usage(0));
 }
 
@@ -85,7 +86,7 @@ int	main(int argc, char **argv)
 	t_fractal	*fractal;
 
 	if (argc < 2)
-        return (print_usage(1));
+		return (print_usage(1));
 	if (!validate_argv(argc, argv))
 		return (0);
 	fractal = malloc(sizeof(t_fractal));

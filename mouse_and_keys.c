@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:14:58 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/03 16:46:24 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 17:15:29 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	set_random_julia(double *cx, double *cy)
 	*cy = generate_random_c();
 }
 
-int close_fractol(t_fractal *fractal)
+int	close_fractol(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->image);
 	mlx_destroy_window(fractal->mlx, fractal->window);
@@ -53,6 +53,7 @@ int close_fractol(t_fractal *fractal)
 	exit(0);
 	return (0);
 }
+
 int	key_hook(int key_code, t_fractal *fractal)
 {
 	if (key_code == ESC)

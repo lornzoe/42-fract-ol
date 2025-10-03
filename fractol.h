@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 23:04:32 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/03 16:38:38 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/03 17:19:17 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include "ft_printf.h"
 # include "mlx.h"
 # include <math.h>
-#include <X11/X.h>
-
+# include <X11/X.h>
 
 # define SIZE 900
 
