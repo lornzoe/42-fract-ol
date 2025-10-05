@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 00:06:26 by lyanga            #+#    #+#             */
-/*   Updated: 2025/10/05 15:03:39 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/05 14:48:22 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-#include "libft.h"
+#include "fractol_bonus.h"
 
 static int	print_usage(int usage)
 {
@@ -21,6 +20,7 @@ static int	print_usage(int usage)
 	ft_putendl_fd("	- mandelbrot (./fractol mandelbrot)", 2);
 	ft_putendl_fd("	- julia (./fractol julia <real c> <imag. c>)", 2);
 	ft_putendl_fd("		- e.g. ./fractol julia 0.25 0.75", 2);
+	ft_putendl_fd("	- burning_ship (./fractol burning_ship)", 2);
 	return (0);
 }
 
