@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 23:14:05 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/30 15:39:04 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/05 15:24:43 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	calculate_julia(t_fractal *fractal)
 		tmp = fractal->zx;
 		fractal->zx = (fractal->zx * fractal->zx) - (fractal->zy * fractal->zy)
 			+ fractal->cx;
-		fractal->zy = 2.f * fractal->zy * tmp + fractal->cy;
+		fractal->zy = 2.0 * fractal->zy * tmp + fractal->cy;
 		if (fractal->zx * fractal->zx + fractal->zy
-			* fractal->zy >= 4.f)
+			* fractal->zy >= 4.0)
 			break ;
 	}
 	if (i == fractal->max_iterations)

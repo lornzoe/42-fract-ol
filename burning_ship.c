@@ -6,7 +6,7 @@
 /*   By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 13:54:03 by lyanga            #+#    #+#             */
-/*   Updated: 2025/09/30 14:01:11 by lyanga           ###   ########.fr       */
+/*   Updated: 2025/10/05 15:24:45 by lyanga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	calculate_burning_ship(t_fractal *fractal)
 	{
 		x_temp = fractal->zx * fractal->zx - fractal->zy * fractal->zy
 			+ fractal->cx;
-		fractal->zy = fabs(2. * fractal->zx * fractal->zy) + fractal->cy;
+		fractal->zy = fabs(2.0 * fractal->zx * fractal->zy) + fractal->cy;
 		fractal->zx = fabs(x_temp);
 		if (fractal->zx * fractal->zx + fractal->zy
-			* fractal->zy >= __DBL_MAX__)
+			* fractal->zy > 4.0)
 			break ;
 	}
 	if (i == fractal->max_iterations)

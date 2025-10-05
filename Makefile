@@ -6,7 +6,7 @@
 #    By: lyanga <lyanga@student.42singapore.sg>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 01:06:07 by lyanga            #+#    #+#              #
-#    Updated: 2025/10/05 15:02:52 by lyanga           ###   ########.fr        #
+#    Updated: 2025/10/05 15:28:23 by lyanga           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,7 @@ all: $(NAME)
 $(NAME): $(LIBFT) $(MINILIBX) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_FLAGS) $(MLX_FLAGS) -o $(NAME)
 
-bonus: $(LIBFT) $(MINILIBX) $(BONUS_OBJS);
-	echo $(BONUS_SRCS)
+bonus: $(LIBFT) $(MINILIBX) $(BONUS_OBJS)
 	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT_FLAGS) $(MLX_FLAGS) -o $(NAME)
 
 # Compile C files to object files
